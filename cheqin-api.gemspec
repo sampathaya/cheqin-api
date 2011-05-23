@@ -4,7 +4,7 @@ require "cheqin-api/version"
 
 Gem::Specification.new do |s|
   s.name      = 'cheqin-api'
-  s.version   = Chaqin::VERSION
+  s.version   = Cheqin::VERSION
   s.platform  = Gem::Platform::RUBY
 
   s.summary = "Cheqin API"
