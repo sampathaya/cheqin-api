@@ -28,7 +28,7 @@ module Cheqin
       Hashie::Mash.new(response)
     end
     
-    def apply_auth_token(options)
+    def self.apply_auth_token(options)
           [options, options.merge(:auth_token => Cheqin.auth_token)]
     end
 
