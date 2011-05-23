@@ -19,7 +19,7 @@ module Cheqin
 
     def self.fetch(path, options)
         puts path.inspect + '+++++++++++++++++++++++' + options.inspect
-      response = get(path, { :query => options })
+      response = get(path, { :query => apply_auth_token(options) })
       if response.code == 403
         raise HoptoadError.new('SSL should be enabled - use Hoptoad.secure = true in configuration')
       end
