@@ -8,11 +8,11 @@ module Cheqin
       results = fetch(collection_path, options)
 
       raise CheqinError.new(results.errors.error) if results.errors
-      results.projects.project
+     # results.projects.project
     end
 
     def self.collection_path
-      '/data_api/v1/projects.xml'
+      #'/data_api/v1/projects.xml'
     end
 
   end
