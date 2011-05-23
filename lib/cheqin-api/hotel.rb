@@ -1,5 +1,5 @@
 module Hoptoad
-  class Project < Hoptoad::Base
+  class Hotel < Cheqin::Base
 
     def self.find(*args)
       setup
@@ -7,7 +7,7 @@ module Hoptoad
 
       results = fetch(collection_path, options)
 
-      raise HoptoadError.new(results.errors.error) if results.errors
+      raise CheqinError.new(results.errors.error) if results.errors
       results.projects.project
     end
 

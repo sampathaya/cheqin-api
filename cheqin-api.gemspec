@@ -1,18 +1,18 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "hoptoad-api/version"
+require "cheqin-api/version"
 
 Gem::Specification.new do |s|
-  s.name      = 'hoptoad-api'
-  s.version   = Hoptoad::VERSION
+  s.name      = 'cheqin-api'
+  s.version   = Chaqin::VERSION
   s.platform  = Gem::Platform::RUBY
 
-  s.summary = "Hoptoad API"
-  s.description = "An unofficial gem for interacting with the Hoptoad API"
+  s.summary = "Cheqin API"
+  s.description = "API client for cheqin.net"
 
-  s.authors   = ['Steve Agalloco']
-  s.email     = ['steve.agalloco@gmail.com']
-  s.homepage  = 'http://github.com/spagalloco/hoptoad-api'
+  s.authors   = ['Sampath Munasinghe']
+  s.email     = ['sam@artellectual.com']
+  s.homepage  = 'http://github.com/sampathnisha/hoptoad-api'
 
   s.add_dependency(%q<httparty>, [">= 0.5.2"])
   s.add_dependency(%q<hashie>, [">= 0.2.0"])

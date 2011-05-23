@@ -1,5 +1,5 @@
-module Hoptoad
-  class Error < Hoptoad::Base
+module Cheqin
+  class Error < Cheqin::Base
 
     def self.find(*args)
       setup
@@ -10,11 +10,11 @@ module Hoptoad
         when :all
           find_all(args)
         else
-          raise HoptoadError.new('Invalid argument')
+          raise CheqinError.new('Invalid argument')
       end
 
-      raise HoptoadError.new('No results found.') if results.nil?
-      raise HoptoadError.new(results.errors.error) if results.errors
+      raise CheqinError.new('No results found.') if results.nil?
+      raise CheqinError.new(results.errors.error) if results.errors
 
       results.group || results.groups
     end

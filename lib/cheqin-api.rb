@@ -1,11 +1,11 @@
 require 'hashie'
 require 'httparty'
 
-module Hoptoad
+module Cheqin
   extend self
   attr_accessor :account, :auth_token, :secure
 
-  class HoptoadError < StandardError; end
+  class CheqinError < StandardError; end
 
   def configure(options={})
     @account = options[:account] if options.has_key?(:account)
@@ -14,7 +14,7 @@ module Hoptoad
   end
 
   def account_path
-    "#{protocol}://#{@account}.hoptoadapp.com"
+    "#{protocol}://api.cheqin.net"
   end
 
   def protocol
@@ -23,8 +23,8 @@ module Hoptoad
 
 end
 
-require 'hoptoad-api/core_extensions'
-require 'hoptoad-api/client'
-require 'hoptoad-api/error'
-require 'hoptoad-api/notice'
-require 'hoptoad-api/project'
+require 'cheqin-api/core_extensions'
+require 'cheqin-api/client'
+require 'cheqin-api/error'
+require 'cheqin-api/notice'
+require 'cheqin-api/project'

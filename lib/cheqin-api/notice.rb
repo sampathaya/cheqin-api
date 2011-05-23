@@ -1,5 +1,5 @@
 module Hoptoad
-  class Notice < Hoptoad::Base
+  class Notice < Cheqin::Base
 
     def self.find(id, error_id, options={})
       setup
@@ -7,7 +7,7 @@ module Hoptoad
       hash = fetch(find_path(id, error_id), options)
 
       if hash.errors
-        raise HoptoadError.new(results.errors.error)
+        raise CheqinError.new(results.errors.error)
       end
 
       hash.notice
@@ -23,7 +23,7 @@ module Hoptoad
         options[:page] = page
         hash = fetch(all_path(error_id), options)
         if hash.errors
-          raise HoptoadError.new(results.errors.error)
+          raise CheqinError.new(results.errors.error)
         end
         notice_stubs = hash.notices
 
@@ -41,7 +41,7 @@ module Hoptoad
 
       hash = fetch(all_path(error_id), options)
       if hash.errors
-        raise HoptoadError.new(results.errors.error)
+        raise CheqinError.new(results.errors.error)
       end
 
       hash.notices
