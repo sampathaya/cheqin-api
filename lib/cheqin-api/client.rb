@@ -29,7 +29,7 @@ module Cheqin
     end
     
     def self.apply_auth_token(options)
-          [options, options.merge(:auth_token => Cheqin.auth_token)]
+          options[:auth_token]  = Cheqin.auth_token
     end
 
   end
