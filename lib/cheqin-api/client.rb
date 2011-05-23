@@ -1,5 +1,5 @@
 module Cheqin
-  class Base
+  class Base 
     include HTTParty
     format :xml
 
