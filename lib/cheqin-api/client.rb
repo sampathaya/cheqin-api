@@ -18,7 +18,7 @@ module Cheqin
     end
 
     def self.fetch(path, options)
-         = apply_auth_token(options)
+        options = apply_auth_token(options)
         puts path.inspect + '+++++++++++++++++++++++' + options.inspect
       response = get(path, { :query => options })
       if response.code == 403
@@ -28,7 +28,7 @@ module Cheqin
       Hashie::Mash.new(response)
     end
     
-    def apply_auth_token(path)
+    def apply_auth_token(options)
           [options, options.merge(:auth_token => Cheqin.auth_token)]
     end
 
