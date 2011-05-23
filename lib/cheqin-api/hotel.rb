@@ -2,7 +2,7 @@ module Cheqin
   class Hotel < Cheqin::Base
 
     def self.find(*args)
-      puts "---------------------------------------------------------"
+
       setup
       options = args.extract_options!
 
