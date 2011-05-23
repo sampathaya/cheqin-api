@@ -1,4 +1,4 @@
-module Hoptoad
+module Cheqin
   class Hotel < Cheqin::Base
 
     def self.find(*args)
