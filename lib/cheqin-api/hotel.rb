@@ -12,9 +12,5 @@ module Cheqin
      # results.projects.project
     end
 
-    def self.collection_path
-      #'/data_api/v1/projects.xml'
-    end
-
   end
 end
