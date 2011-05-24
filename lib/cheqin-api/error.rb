@@ -10,11 +10,11 @@ module Cheqin
         when :all
           find_all(args)
         else
-          raise CheqinError.new('Invalid argument')
+          raise HoptoadError.new('Invalid argument')
       end
 
-      raise CheqinError.new('No results found.') if results.nil?
-      raise CheqinError.new(results.errors.error) if results.errors
+      raise HoptoadError.new('No results found.') if results.nil?
+      raise HoptoadError.new(results.errors.error) if results.errors
 
       results.group || results.groups
     end

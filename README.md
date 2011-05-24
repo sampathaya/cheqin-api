@@ -1,61 +1,38 @@
-Hoptoad API
+Cheqin.me API client
 ===========
 
-An unofficial Ruby library for interacting with the [Hoptoad API](http://hoptoadapp.com/pages/api)
+This is the client gem for accessing cheqin.net property management system
 
 Usage
 -----
 
-The first thing you need to set is the account name.  This is the same as the web address for your account.
+First, you should set the authentication token.
 
-    Hoptoad.account = 'myaccount'
-
-Then, you should set the authentication token.
-
-    Hoptoad.auth_token = 'abcdefg'
+    Cheqin.auth_token = 'abcdefg'
 
 If your account uses ssl then turn it on:
 
-    Hoptoad.secure = true
+    Cheqin.secure = true
 
 Optionally, you can configure through a single method:
 
-    Hoptoad.configure(:account => 'anapp', :auth_token => 'abcdefg', :secure => true)
+    Cheqin.configure(:auth_token => 'abcdefg', :secure => true)
 
-Once you've configured authentication, you can make calls against the API.  If no token or authentication is given, a HoptoadError exception will be raised.
+Once you've configured authentication, you can make calls against the API.  If no token or authentication is given, a CheqinError exception will be raised.
 
-Finding Errors
+load hotel
 --------------
 
-Errors are paginated, the API responds with 25 at a time, pass an optional params hash for additional pages:
+    hotel = Cheqin::Hotel.find(id , params)
 
-    Hoptoad::Error.find(:all)
-    Hoptoad::Error.find(:all, :params => { :page => 2 })
+Get theme
+--------------
+	
+	hotel.color_info
 
-To find an individual error, you can find by ID:
-
-    Hoptoad::Error.find(error_id)
-
-Find *all* notices of an error:
-
-    Hoptoad::Notice.all(error_id)
-
-Find an individual notice:
-
-    Hoptoad::Notice.find(notice_id, error_id)
-
-Projects
---------
-
-To retrieve a list of projects:
-
-    Hoptoad::Project.find(:all)
-
-Responses
----------
-
-If an error is returned from the API.  A HoptoadError will be raised.  Successful responses will return a Hashie::Mash object based on the data from the response.
-
+Get hotel images
+--------------
+	hotel.images
 
 Requirements
 ------------
@@ -63,8 +40,12 @@ Requirements
 * HTTParty
 * Hashie
 
-Contributors
+Forked from 
 ------------
 
 * Matias Käkelä (SSL Support)
 * Jordan Brough (Notices)
+
+Redesigned by
+------------
+Artellectual.com

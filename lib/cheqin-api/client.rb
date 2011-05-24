@@ -18,9 +18,16 @@ module Cheqin
     end
 
     def self.fetch(path, options)
-        options = apply_auth_token(options)
-        puts path.inspect + '+++++++++++++++++++++++' + options.inspect
       response = get(path, { :query => options })
+      if response.code == 403
+        raise CheqinError.new('SSL should be enabled - use Hoptoad.secure = true in configuration')
+      end
+
+      Hashie::Mash.new(response)
+    end
+    
+    def self.put(path, options)
+      response = put(path, { :post => options })
       if response.code == 403
         raise HoptoadError.new('SSL should be enabled - use Hoptoad.secure = true in configuration')
       end
@@ -28,9 +35,7 @@ module Cheqin
       Hashie::Mash.new(response)
     end
     
-    def self.apply_auth_token(options)
-          options[:auth_token]  = Cheqin.auth_token
-    end
+
 
   end
 end
